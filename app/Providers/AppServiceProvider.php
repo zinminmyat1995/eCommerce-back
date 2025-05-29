@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\Facades\Route;
+use App\Classes\Repositories\UserRegistrationRepository;
+use App\Classes\Repositories\LoginRepository;
+
+use App\Interfaces\{UserRegistrationInterface};
+use App\Interfaces\{LoginInterface};
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(UserRegistrationInterface::class,UserRegistrationRepository::class); 
+        $this->app->bind(LoginInterface::class,LoginRepository::class); 
     }
 
     /**
