@@ -1,0 +1,9 @@
+{
+    "build": {
+      "command": "composer install"
+    },
+    "start": {
+      "command": "php artisan serve"
+    }
+  }
+  
